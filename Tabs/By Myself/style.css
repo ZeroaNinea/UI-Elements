@@ -62,7 +62,7 @@ body {
 	from {
 		transform: translateX(5%);
 		opacity: 0;
-		filter: blur(1px);
+		filter: blur(2px);
 	}
 	to {
 		transform: translateX(0);
