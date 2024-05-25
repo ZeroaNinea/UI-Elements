@@ -21,26 +21,22 @@ const generateAccordions = async function(count) {
 				`;
 
 				document.querySelector('.accordion-wrapper').insertAdjacentHTML('beforeend', html);
+
+				const accordions = document.querySelectorAll('.accordion');
+				const accordionsHeadings = document.querySelectorAll('.accordion .accordion-heading');
+
+				accordionsHeadings[i].addEventListener('click', function() {
+					if(accordions[i].classList.contains('active')) {
+						accordions[i].classList.remove('active');
+					} else {
+						document.querySelectorAll('.accordion').forEach(acco => acco.classList.remove('active'));
+						accordions[i].classList.add('active');
+					}
+				});
 			} else {
 				throw new Error('Something is wrong with response data.');
 			}
 		}).catch(err => console.error(err));
 	}
-
-	const accordions = document.querySelectorAll('.accordion');
-	const accordionsHeadings = document.querySelectorAll('.accordion .accordion-heading');
-
-	accordions.forEach((acco, index) => {
-		accordionsHeadings[index].addEventListener('click', function() {
-			if(acco.classList.contains('active')) {
-				acco.classList.remove('active');
-			} else {
-				accordions.forEach((subcontent) => {
-					subcontent.classList.remove('active');
-				});
-				acco.classList.add('active');
-			}
-		});
-	});
 }
-generateAccordions(6);
+generateAccordions(6); // You can change the number of genetating elements here.
