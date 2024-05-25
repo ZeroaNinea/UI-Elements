@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+	--inverseve-bootstrap: #292b2c;
+	--dark-bootstrap: #212529;
+	--bs-light-border-subtle-bootstrap: #212529;
+	--primary-bootstrap: #0D6EFD;
+	--info-bootstrap: #0DCAF0;
+	--bs-light-bootstrap: #F8F9FA;
+	--light-bootstrap: #F8F9FA;
+	--gray-800-bootstrap: #343A40;
+	--success-bootstrap: #20C997; /* It's actually not the "success" color. */
+}
+* {
+	font-family: 'Poppins', 'roboto', sans-serif;
+}
+
+/* Designing of the Acctordion */
+body {
+	margin: 0 auto;
+	height: 150vh;
+}
+body h1 {
+	display: flex;
+	justify-content: center;
+	margin: 2%;
+}
+.accordion-wrapper {
+	width: 90vw;
+	margin: inherit;
+}
+.accordion-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid var(--bs-light-border-subtle-bootstrap);
+	border-top: none;
+	padding-left: 3%;
+	padding-right: 3%;
+	cursor: pointer;
+	color: var(--gray-800-bootstrap);
+	transition: color .3s ease-in-out;
+	transition: background-color .3s ease-in-out;
+}
+.accordion:first-child .accordion-heading {
+	border: 1px solid var(--inverseve-bootstrap);
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+.accordion:last-child .accordion-heading {
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+.accordion:last-child p {
+	border-bottom: none;
+}
+
+/* Designing of interaction with the Accordion */
+.accordion:first-child .accordion-heading:hover {
+	border-color: var(--bs-light-bootstrap);
+}
+.accordion-heading:hover {
+	background-color: var(--success-bootstrap);
+	color: var(--bs-light-bootstrap);
+	border-color: var(--bs-light-bootstrap);
+}
+.accordion.active .accordion-heading {
+	background-color: var(--info-bootstrap);
+	color: var(--bs-light-bootstrap);
+	border-color: var(--bs-light-bootstrap);
+}
+.accordion.active .accordion-heading i {
+	transform: rotate(180deg);
+}
+.accordion:last-child.active .accordion-heading {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.accordion p {
+	margin: 0;
+	background: var(--light-bootstrap);
+	border-bottom: 1px solid var(--bs-light-border-subtle-bootstrap);
+	height: 0;
+	opacity: 0;
+	transition: all .5s ease;
+	top: 35px;
+	filter: blur(1px);
+	pointer-events: none;
+}
+.accordion.active p {
+	padding: 2%;
+	height: 200px;
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
+	pointer-events: auto;
+}
