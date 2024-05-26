@@ -65,6 +65,9 @@ body h1 {
 	color: var(--bs-light-bootstrap);
 	border-color: var(--bs-light-bootstrap);
 }
+.accordion:hover:not(.active) + .accordion .accordion-heading {
+	border-top: 1px solid var(--bs-light-border-subtle-bootstrap);
+}
 .accordion.active:has(+ .accordion .accordion-heading:hover) p {
 	border-bottom: none;
 }
